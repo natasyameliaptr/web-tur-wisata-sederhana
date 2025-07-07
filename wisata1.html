@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Istana Maimun</title>
+    <link rel="stylesheet" href="css/font.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Beranda</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#deskripsi">Detail</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pembelian">Pesan Tiket</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <h2 class="text-left">Istana Maimun</h2>
+      <img src="images/wisata1.jpg" class="img-fluid mb-3" alt="Istana Maimun" />
+      <div id="deskripsi">
+        <p>
+          Istana Maimun adalah sebuah bangunan megah yang terletak di Kota Medan, Sumatera Utara, dan menjadi salah satu ikon budaya dan sejarah yang paling terkenal di Indonesia. Istana ini dibangun pada tahun 1888 oleh Sultan Ma'mun Al
+          Rasyid Perkasa Alamsyah, penguasa Kesultanan Deli ke-9. Dengan gaya arsitektur yang memadukan elemen Melayu, Islam, India, Italia, dan Spanyol, Istana Maimun mencerminkan keragaman budaya yang memengaruhi wilayah ini di masa lalu.
+          Hingga kini, istana ini tidak hanya menjadi simbol kejayaan Kesultanan Deli, tetapi juga pusat daya tarik wisata yang memikat pengunjung dari berbagai daerah dan mancanegara.
+        </p>
+        <p>
+          Istana Maimun memiliki luas sekitar 2.772 meter persegi dan terdiri dari 30 ruangan yang tersebar di dua lantai. Bangunannya didominasi oleh warna kuning, yang merupakan warna khas budaya Melayu, melambangkan kebesaran, kemuliaan,
+          dan kehormatan. Di dalamnya terdapat ruang singgasana yang megah, lengkap dengan ornamen khas Melayu dan Islam yang dihiasi lampu gantung bergaya Eropa, menunjukkan pengaruh budaya luar pada desainnya.
+        </p>
+        <p>
+          Selain fungsi utamanya sebagai pusat pemerintahan Kesultanan Deli pada masa lalu, Istana Maimun juga menjadi tempat tinggal keluarga kerajaan. Saat ini, istana ini masih menyimpan berbagai benda peninggalan sejarah, seperti
+          perabot antik, koleksi senjata tradisional, pakaian adat, dan foto-foto keluarga kerajaan. Pengunjung dapat menjelajahi bagian dalam istana untuk melihat lebih dekat kehidupan Kesultanan Deli di masa kejayaannya.
+        </p>
+        <p>
+          Keunikan lain dari Istana Maimun adalah pengaruh budaya yang beragam pada arsitekturnya. Pintu dan jendela istana didesain dengan lengkungan bergaya Spanyol, sementara tata ruangnya mencerminkan nilai-nilai tradisional Melayu.
+          Gaya Islam terlihat pada ukiran-ukiran di dinding dan langit-langit, yang dilengkapi dengan motif bunga dan kaligrafi Arab. Sementara itu, perabotan dan lampu gantung di dalam istana menunjukkan pengaruh Eropa, terutama Italia.
+        </p>
+        <p>
+          Hingga kini, Istana Maimun tetap menjadi salah satu destinasi wisata utama di Medan. Selain sebagai tempat wisata sejarah, istana ini juga sering digunakan untuk acara budaya, pameran, dan kegiatan lain yang mempromosikan warisan
+          Melayu. Pengunjung dapat menikmati pengalaman yang unik dengan menyewa pakaian adat Melayu untuk berfoto di dalam istana, menjadikannya kenangan tak terlupakan. Istana Maimun tidak hanya menawarkan keindahan visual, tetapi juga
+          mengajak pengunjung untuk mempelajari dan menghargai sejarah serta kekayaan budaya yang ada di Sumatera Utara.
+        </p>
+      </div>
+
+      <h5 id="pembelian">Pembelian Tiket</h5>
+      <form onsubmit="processTicket(event)">
+        <div class="mb-3">
+          <label class="form-label">Harga Tiket Anak-anak (Rp5.000/tiket)</label>
+          <input type="number" id="childrenQuantity" class="form-control" min="0" max="10" value="0" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Harga Tiket Dewasa (Rp10.000/tiket)</label>
+          <input type="number" id="adultQuantity" class="form-control" min="0" max="10" value="0" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Sewa Busana (Rp50.000/busana)</label>
+          <input type="number" id="rentalQuantity" class="form-control" min="0" max="10" value="0" />
+        </div>
+        <button type="submit" class="btn btn-success">Beli Tiket</button>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function processTicket(event) {
+        event.preventDefault();
+
+        const childrenQuantity = parseInt(document.getElementById('childrenQuantity').value) || 0;
+        const adultQuantity = parseInt(document.getElementById('adultQuantity').value) || 0;
+        const rentalQuantity = parseInt(document.getElementById('rentalQuantity').value) || 0;
+
+        const totalChildrenPrice = childrenQuantity * 20000;
+        const totalAdultPrice = adultQuantity * 50000;
+        const totalRentalPrice = rentalQuantity * 50000;
+
+        const totalPrice = totalChildrenPrice + totalAdultPrice + totalRentalPrice;
+
+        if (childrenQuantity + adultQuantity + rentalQuantity === 0) {
+          alert('Silakan pilih setidaknya 1 tiket.');
+          return;
+        }
+
+        alert(`Pembelian berhasil! Total harga: Rp${totalPrice.toLocaleString()}`);
+
+        document.getElementById('childrenQuantity').value = 0;
+        document.getElementById('adultQuantity').value = 0;
+        document.getElementById('rentalQuantity').value = 0;
+      }
+    </script>
+  </body>
+</html>

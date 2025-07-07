@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masjid Raya Al-Mashun</title>
+    <link rel="stylesheet" href="css/font.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Beranda</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#deskripsi">Detail</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pembelian">Pesan Tiket</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <h2 class="text-left" id="deskripsi">Masjid Raya Medan</h2>
+      <img src="images/wisata3.jpeg" class="img-fluid mb-3" alt="Masjid Raya Medan" />
+      <p>
+        Masjid Raya Medan, atau yang dikenal dengan nama Masjid Raya Al-Mashun, adalah salah satu bangunan bersejarah dan ikon arsitektur di Kota Medan, Sumatera Utara. Masjid ini didirikan pada tahun 1906 oleh Sultan Ma'mun Al Rasyid
+        Perkasa Alamsyah dari Kesultanan Deli dan selesai dibangun pada tahun 1909. Masjid ini menjadi bukti kejayaan Kesultanan Deli sekaligus lambang keberagaman budaya yang tercermin dari arsitekturnya.
+      </p>
+      <p>
+        Arsitektur Masjid Raya Medan merupakan perpaduan gaya Timur Tengah, India, dan Spanyol. Bangunannya berbentuk segi delapan simetris, dengan kubah besar di tengah yang dikelilingi oleh empat kubah kecil di setiap sudutnya. Pintu dan
+        jendela masjid dihiasi dengan kaca patri yang indah, memberikan nuansa artistik yang khas. Material yang digunakan untuk membangun masjid ini sebagian besar diimpor dari luar negeri, seperti marmer dari Italia, kaca patri dari
+        Tiongkok, dan lampu gantung dari Eropa, menunjukkan kemewahan dan keindahan desainnya.
+      </p>
+      <p>
+        Masjid ini memiliki ruang utama yang luas dengan dinding-dinding berhias kaligrafi dan motif geometris khas Islam. Mihrab dan mimbar masjid dibuat dari bahan berkualitas tinggi dengan ukiran yang sangat detail. Selain sebagai tempat
+        ibadah, masjid ini juga menjadi pusat kegiatan keagamaan dan sosial bagi masyarakat sekitar.
+      </p>
+      <p>
+        Keunikan lain dari Masjid Raya Medan adalah lokasinya yang strategis, terletak di pusat kota, dekat dengan Istana Maimun dan beberapa bangunan bersejarah lainnya. Hal ini menjadikan masjid ini salah satu destinasi wisata religi yang
+        paling banyak dikunjungi di Medan. Pengunjung, baik lokal maupun mancanegara, sering datang untuk menikmati keindahan arsitekturnya sekaligus merasakan suasana spiritual yang khusyuk.
+      </p>
+      <p>
+        Hingga kini, Masjid Raya Medan tetap menjadi salah satu simbol penting keberagaman dan harmoni budaya di Medan. Selain sebagai tempat ibadah umat Islam, masjid ini juga menjadi lambang persatuan masyarakat Medan yang hidup
+        berdampingan dalam keberagaman etnis dan budaya.
+      </p>
+
+      <h5 id="pembelian">Bayar Parkir</h5>
+      <form onsubmit="processTicket(event)">
+        <div class="mb-3">
+          <label class="form-label">Parkir Sepeda Motor (2.000/Kendaraan)</label>
+          <input type="number" id="motorQuantity" class="form-control" min="0" max="10" value="0" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Parkir Mobil (5.000/kendaraan)</label>
+          <input type="number" id="carQuantity" class="form-control" min="0" max="10" value="0" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Parkir Bus Pariwisata (10.000/Kendaraan)</label>
+          <input type="number" id="busQuantity" class="form-control" min="0" max="10" value="0" />
+        </div>
+        <button type="submit" class="btn btn-success">Biaya Parkir</button>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function processTicket(event) {
+        event.preventDefault();
+
+        const motorQuantity = parseInt(document.getElementById('motorQuantity').value) || 0;
+        const carQuantity = parseInt(document.getElementById('carQuantity').value) || 0;
+        const busQuantity = parseInt(document.getElementById('busQuantity').value) || 0;
+
+        const totalMotorPrice = motorQuantity * 2000;
+        const totalCarPrice = carQuantity * 5000;
+        const totalBusPrice = busQuantity * 10000;
+
+        const totalPrice = totalMotorPrice + totalCarPrice + totalBusPrice;
+
+        if (totalPrice === 0) {
+          alert('Silakan pilih setidaknya 1 tiket.');
+          return;
+        }
+
+        alert(`Pembayaran berhasil! Total harga: Rp${totalPrice.toLocaleString()}`);
+
+        document.getElementById('motorQuantity').value = 0;
+        document.getElementById('carQuantity').value = 0;
+        document.getElementById('busQuantity').value = 0;
+      }
+    </script>
+  </body>
+</html>

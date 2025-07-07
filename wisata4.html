@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pos Bloc</title>
+    <link rel="stylesheet" href="css/font.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Beranda</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#deskripsi">Detail</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pembelian">Pesan Tiket</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <!-- Tambahkan ID pada elemen deskripsi -->
+      <h2 class="text-left" id="deskripsi">Pos Bloc Medan</h2>
+      <img src="images/wisata4.jpeg" class="img-fluid mb-3" alt="Pos bloc medan" />
+      <p>
+        Pos Bloc Medan adalah sebuah destinasi kreatif baru yang memadukan elemen budaya, seni, kuliner, dan gaya hidup modern di tengah Kota Medan. Berlokasi di Gedung Filateli Medan, bangunan ini dulunya merupakan kantor pos tua yang
+        dibangun pada era kolonial Belanda pada tahun 1911. Kini, gedung bersejarah ini direvitalisasi menjadi ruang publik yang hidup tanpa meninggalkan nilai-nilai sejarahnya.
+      </p>
+
+      <p>
+        Sebagai bagian dari jaringan Pos Bloc yang sudah ada di berbagai kota di Indonesia, Pos Bloc Medan memiliki konsep ruang multifungsi yang dirancang untuk mendukung kreativitas masyarakat, khususnya generasi muda. Tempat ini
+        menawarkan berbagai fasilitas, seperti area seni, galeri pameran, ruang komunitas, dan area kuliner. Semua elemen ini dirancang dengan sentuhan modern, namun tetap mempertahankan arsitektur kolonial khas yang menjadi ciri bangunan
+        ini.
+      </p>
+
+      <p>
+        Keunikan Pos Bloc Medan terlihat dari desain interior dan eksteriornya yang memadukan elemen vintage dan kontemporer. Dinding-dindingnya yang tinggi, pintu dan jendela bergaya klasik, serta ornamen kolonial yang dipertahankan
+        menciptakan suasana yang autentik. Sementara itu, area dalamnya dihiasi dengan instalasi seni modern dan dekorasi kreatif yang menarik perhatian pengunjung.
+      </p>
+
+      <p>
+        Selain menjadi tempat nongkrong, Pos Bloc Medan sering menjadi lokasi berbagai acara, seperti pameran seni, bazar kreatif, konser musik, dan diskusi komunitas. Pengunjung juga bisa menikmati berbagai pilihan makanan dan minuman dari
+        tenant lokal yang menawarkan cita rasa khas Medan dan kuliner modern. Dengan suasana yang nyaman dan estetik, tempat ini menjadi magnet bagi anak muda, wisatawan, hingga keluarga untuk bersantai atau mencari inspirasi.
+      </p>
+
+      <p>
+        Pos Bloc Medan tidak hanya menjadi pusat aktivitas kreatif, tetapi juga simbol pelestarian sejarah dan budaya. Melalui revitalisasi bangunan ini, masyarakat dapat mengenang masa lalu sambil menikmati suasana yang segar dan relevan
+        dengan gaya hidup masa kini. Tempat ini menjadi bukti bahwa sejarah dan inovasi dapat bersinergi, menciptakan ruang yang menghubungkan generasi lama dan baru di Kota Medan.
+      </p>
+
+      <!-- Pembelian tiket -->
+      <h5 id="pembelian">Bayar Parkir</h5>
+      <form onsubmit="processTicket(event)">
+        <div class="mb-3">
+          <label class="form-label">Parkir Sepeda Motor (2.000/Kendaraan)</label>
+          <input type="number" id="motorQuantity" class="form-control" min="0" max="10" value="0" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Parkir Mobil (5.000/Kendaraan)</label>
+          <input type="number" id="carQuantity" class="form-control" min="0" max="10" value="0" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Parkir Bus Pariwisata (10.000/Kendaraan)</label>
+          <input type="number" id="busQuantity" class="form-control" min="0" max="10" value="0" />
+        </div>
+        <button type="submit" class="btn btn-success">Biaya Parkir</button>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function processTicket(event) {
+        event.preventDefault();
+
+        // Mengambil jumlah tiket dari input
+        const motorQuantity = parseInt(document.getElementById('motorQuantity').value) || 0;
+        const carQuantity = parseInt(document.getElementById('carQuantity').value) || 0;
+        const busQuantity = parseInt(document.getElementById('busQuantity').value) || 0;
+
+        // Menghitung total harga tiket berdasarkan jumlah dan harga satuan
+        const totalMotorPrice = motorQuantity * 2000;
+        const totalCarPrice = carQuantity * 5000;
+        const totalBusPrice = busQuantity * 10000;
+
+        // Menjumlahkan total harga semua kategori
+        const totalPrice = totalMotorPrice + totalCarPrice + totalBusPrice;
+
+        // Validasi: pastikan setidaknya ada tiket yang dipilih
+        if (totalPrice === 0) {
+          alert('Silakan pilih setidaknya 1 tiket.');
+          return;
+        }
+
+        // Menampilkan pesan sukses dengan total harga
+        alert(`Pembayaran berhasil! Total harga: Rp${totalPrice.toLocaleString()}`);
+
+        // Reset semua input ke nilai awal (0)
+        document.getElementById('motorQuantity').value = 0;
+        document.getElementById('carQuantity').value = 0;
+        document.getElementById('busQuantity').value = 0;
+      }
+    </script>
+  </body>
+</html>

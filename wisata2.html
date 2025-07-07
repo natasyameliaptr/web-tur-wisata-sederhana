@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Museum Tjong A Fie</title>
+    <link rel="stylesheet" href="css/font.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Beranda</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#deskripsi">Detail</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pembelian">Pesan Tiket</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <h2 class="text-left" id="deskripsi">Museum Tjong A Fie</h2>
+      <img src="images/wisata2.jpeg" class="img-fluid mb-3" alt="Museum Tjong A Fie" />
+      <p>
+        Museum Tjong A Fie adalah salah satu situs budaya dan sejarah yang terletak di Kota Medan, Sumatera Utara. Bangunan ini dulunya adalah rumah seorang pengusaha terkenal bernama Tjong A Fie, yang hidup pada akhir abad ke-19 hingga
+        awal abad ke-20. Ia merupakan seorang perantau asal Guangdong, Tiongkok, yang berhasil membangun kerajaan bisnis besar di Medan, mencakup perkebunan, perbankan, hingga rel kereta api. Tjong A Fie dikenal tidak hanya sebagai pebisnis
+        sukses, tetapi juga sebagai tokoh yang sangat dihormati karena kontribusinya dalam pembangunan kota dan kedermawanannya kepada masyarakat dari berbagai kalangan.
+      </p>
+      <p>
+        Bangunan Museum Tjong A Fie didirikan pada tahun 1900 dan dirancang dengan arsitektur yang memadukan gaya tradisional Tiongkok, Eropa, dan Melayu. Rumah besar ini mencerminkan kepribadian Tjong A Fie yang menghormati nilai-nilai
+        budaya sekaligus terbuka terhadap pengaruh modern. Dengan luas lebih dari 8.000 meter persegi, bangunan ini terdiri dari berbagai ruangan, termasuk ruang keluarga, ruang tamu, ruang kerja, dapur, dan ruang ibadah. Setiap ruangan
+        dihiasi dengan perabotan antik, lukisan, dan ornamen yang mencerminkan kehidupan sosial dan budaya Tjong A Fie pada masanya.
+      </p>
+      <p>
+        Keunikan museum ini terletak pada desain dan tata ruangnya. Pintu dan jendela kayu dihiasi ukiran khas Tiongkok, sementara lantainya menggunakan ubin bergaya Eropa. Bagian dalamnya dipenuhi dengan foto-foto keluarga Tjong A Fie,
+        dokumen sejarah, dan barang-barang peninggalan yang menggambarkan kehidupan keluarga kaya raya di masa kolonial. Selain itu, terdapat halaman dalam yang asri dan diapit oleh koridor berarsitektur indah, menciptakan suasana tenang di
+        tengah keramaian kota.
+      </p>
+      <p>
+        Tjong A Fie tidak hanya dikenal karena kesuksesannya dalam bisnis, tetapi juga karena peran pentingnya dalam memperkuat hubungan antarbudaya di Medan. Ia sering membantu masyarakat dari berbagai latar belakang, termasuk membangun
+        rumah sakit, klenteng, dan fasilitas umum lainnya. Sikapnya yang dermawan membuatnya dihormati oleh berbagai komunitas, baik Tionghoa, Melayu, maupun Eropa.
+      </p>
+      <p>
+        Saat ini, Museum Tjong A Fie menjadi salah satu destinasi wisata yang wajib dikunjungi di Medan. Pengunjung dapat belajar tentang sejarah kota, kehidupan masyarakat Tionghoa di masa kolonial, dan nilai-nilai toleransi yang
+        ditanamkan oleh Tjong A Fie. Museum ini tidak hanya menawarkan pengalaman visual yang memukau, tetapi juga pelajaran berharga tentang bagaimana keberagaman dapat menjadi kekuatan dalam membangun komunitas yang harmonis.
+      </p>
+
+      <h5 id="pembelian">Pembelian Tiket</h5>
+      <form onsubmit="processTicket(event)">
+        <div class="mb-3">
+          <label class="form-label">Harga Tiket (Rp35.000/tiket)</label>
+          <input type="number" id="generalQuantity" class="form-control" min="0" max="10" value="0" />
+        </div>
+        <button type="submit" class="btn btn-success">Beli Tiket</button>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function processTicket(event) {
+        event.preventDefault();
+
+        const generalQuantity = parseInt(document.getElementById('generalQuantity').value) || 0;
+
+        if (generalQuantity === 0) {
+          alert('Silakan pilih setidaknya 1 tiket.');
+          return;
+        }
+
+        const totalPrice = generalQuantity * 35000;
+
+        alert(`Pembelian berhasil! Total harga: Rp${totalPrice.toLocaleString()}`);
+
+        document.getElementById('generalQuantity').value = 0;
+      }
+    </script>
+  </body>
+</html>

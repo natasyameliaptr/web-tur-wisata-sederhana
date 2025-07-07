@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rahmat Gallery</title>
+    <link rel="stylesheet" href="css/font.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Beranda</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#deskripsi">Detail</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pembelian">Pesan Tiket</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <!-- Bagian Deskripsi -->
+      <h2 class="text-left" id="deskripsi">Rahmat Internasional Museum and Gallery</h2>
+      <img src="images/wisata5.jpg" class="img-fluid mb-3" alt="Rahmat internasional museum&gallery" />
+      <p>
+        Rahmat International Wildlife Museum & Gallery adalah museum unik yang terletak di Kota Medan, Sumatera Utara. Museum ini didirikan oleh seorang pecinta alam dan pemburu profesional bernama Rahmat Shah, dengan tujuan untuk
+        mengenalkan keanekaragaman fauna dari seluruh dunia sekaligus meningkatkan kesadaran tentang pentingnya konservasi satwa liar. Museum ini menjadi salah satu destinasi wisata edukasi di Medan yang menarik bagi pengunjung dari
+        berbagai kalangan, baik lokal maupun mancanegara.
+      </p>
+
+      <p>
+        Museum ini memiliki koleksi lebih dari 2.000 spesies satwa yang diawetkan dengan teknik taksidermi. Koleksi tersebut mencakup berbagai jenis mamalia, burung, reptil, dan serangga dari berbagai belahan dunia, termasuk spesies yang
+        sudah langka dan terancam punah. Satwa-satwa ini dipamerkan dalam diorama yang menggambarkan habitat aslinya, sehingga memberikan pengalaman edukatif dan interaktif bagi pengunjung. Beberapa koleksi unggulan di museum ini adalah
+        harimau, singa, gajah, beruang, hingga burung eksotis.
+      </p>
+
+      <p>
+        Selain satwa liar, museum ini juga memiliki ruang khusus konservasi yang memberikan informasi tentang pentingnya menjaga keberlangsungan hidup satwa di alam liar. Terdapat pula galeri seni yang menampilkan berbagai karya seni
+        bertema satwa dan lingkungan, menambah nilai estetika dan edukasi bagi para pengunjung.
+      </p>
+
+      <p>
+        Bangunan museum dirancang dengan nuansa modern dan elegan, dilengkapi dengan pencahayaan yang mendukung suasana eksplorasi. Pengunjung juga dapat menikmati fasilitas lainnya, seperti ruang pameran interaktif, toko suvenir, dan kafe
+        yang menyajikan makanan ringan. Museum ini tidak hanya cocok untuk pecinta satwa dan pelajar, tetapi juga menjadi tempat yang menarik untuk keluarga yang ingin belajar sambil berwisata.
+      </p>
+
+      <p>
+        Rahmat International Wildlife Museum & Gallery tidak hanya berfungsi sebagai tempat wisata, tetapi juga sebagai sarana edukasi untuk meningkatkan kesadaran masyarakat tentang pentingnya pelestarian satwa dan lingkungan. Melalui
+        koleksi dan program edukasinya, museum ini berupaya menyampaikan pesan bahwa keragaman hayati adalah kekayaan dunia yang harus dijaga. Museum ini menjadi salah satu destinasi wajib di Medan bagi mereka yang ingin memperluas wawasan
+        tentang kehidupan satwa liar dan pentingnya pelestarian alam.
+      </p>
+
+      <!-- Bagian Pembelian Tiket -->
+      <h5 id="pembelian">Pembelian Tiket</h5>
+      <form onsubmit="processTicket(event)">
+        <div class="mb-3">
+          <label class="form-label">Jumlah Anak-anak (Rp15.000/tiket)</label>
+          <input type="number" id="childrenQuantity" class="form-control" min="0" max="10" value="0" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Jumlah Dewasa (Rp45.000/tiket)</label>
+          <input type="number" id="adultQuantity" class="form-control" min="0" max="10" value="0" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Jumlah Turis Asing (Rp75.000/tiket)</label>
+          <input type="number" id="touristQuantity" class="form-control" min="0" max="10" value="0" />
+        </div>
+        <button type="submit" class="btn btn-success">Beli Tiket</button>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function processTicket(event) {
+        event.preventDefault();
+
+        const generalQuantity = parseInt(document.getElementById('generalQuantity').value) || 0;
+        const studentQuantity = parseInt(document.getElementById('studentQuantity').value) || 0;
+        const touristQuantity = parseInt(document.getElementById('touristQuantity').value) || 0;
+
+        const totalGeneralPrice = generalQuantity * 75000;
+        const totalStudentPrice = studentQuantity * 30000;
+        const totalTouristPrice = touristQuantity * 150000;
+
+        const totalPrice = totalGeneralPrice + totalStudentPrice + totalTouristPrice;
+
+        if (generalQuantity + studentQuantity + touristQuantity === 0) {
+          alert('Silakan pilih setidaknya 1 tiket.');
+          return;
+        }
+
+        alert(`Pembayaran berhasil! Total harga: Rp${totalPrice.toLocaleString()}`);
+
+        document.getElementById('generalQuantity').value = 0;
+        document.getElementById('studentQuantity').value = 0;
+        document.getElementById('touristQuantity').value = 0;
+      }
+    </script>
+  </body>
+</html>
