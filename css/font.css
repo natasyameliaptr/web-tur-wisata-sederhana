@@ -1,0 +1,46 @@
+/* Import font dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap');
+
+/* Atur font global untuk seluruh halaman */
+body {
+  font-family: 'Poppins', sans-serif; /* Font utama */
+  font-size: 16px; /* Ukuran font default */
+  line-height: 1.6; /* Jarak antar baris */
+  margin: 0;
+  padding: 0;
+}
+
+/* Font untuk judul */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif; /* Font khusus untuk heading */
+  font-weight: 700; /* Heading lebih tebal */
+  margin-bottom: 1rem;
+}
+
+/* Font untuk paragraf */
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+/* Font untuk tombol */
+button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Font untuk elemen link */
+a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
